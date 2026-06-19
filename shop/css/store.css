@@ -1,0 +1,140 @@
+:root {
+  --pink: #FFB6C1;
+  --gold: #D4AF37;
+  --white: #FFFFFF;
+  --charcoal: #333333;
+  --pink-light: #FFF0F3;
+  --pink-dark: #E8919E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+}
+
+h1, h2, h3, h4 { font-family: 'Didot', 'Bodoni', Georgia, serif; color: var(--gold); }
+
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; background: var(--white);
+  border-bottom: 2px solid var(--pink); position: sticky; top: 0; z-index: 100;
+}
+nav .logo { font-family: 'Didot', serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 2px; }
+nav .nav-links { display: flex; gap: 2rem; align-items: center; }
+nav .nav-links a { font-size: 0.95rem; color: var(--charcoal); transition: color 0.2s; }
+nav .nav-links a:hover { color: var(--gold); }
+.cart-badge { background: var(--pink-dark); color: white; border-radius: 50%; font-size: 0.7rem; padding: 2px 6px; margin-left: 4px; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink) 100%);
+  padding: 5rem 2rem; text-align: center;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--gold); }
+.hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; color: var(--charcoal); }
+
+/* BUTTONS */
+.btn {
+  display: inline-block; padding: 0.75rem 2rem; border: none; border-radius: 30px;
+  font-size: 1rem; cursor: pointer; transition: all 0.3s; font-family: inherit;
+}
+.btn-primary { background: var(--gold); color: white; }
+.btn-primary:hover { background: #c9a430; }
+.btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
+.btn-outline:hover { background: var(--gold); color: white; }
+.btn-pink { background: var(--pink); color: var(--charcoal); }
+.btn-pink:hover { background: var(--pink-dark); color: white; }
+
+/* PRODUCTS GRID */
+.section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 2rem; }
+.products-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s;
+}
+.product-card:hover { transform: translateY(-4px); }
+.product-card .img {
+  height: 280px; background: linear-gradient(135deg, var(--pink) 0%, var(--white) 50%, var(--pink-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+}
+.product-card .info { padding: 1.5rem; }
+.product-card .info h3 { font-size: 1.2rem; color: var(--charcoal); margin-bottom: 0.5rem; }
+.product-card .info .price { font-size: 1.1rem; color: var(--gold); font-weight: bold; margin-bottom: 1rem; }
+.product-card .info .desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; line-height: 1.5; }
+
+/* WAVE DIVIDER */
+.wave { width: 100%; height: 60px; background: var(--white); margin-top: -1px; }
+
+/* CART PAGE */
+.cart-container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+.cart-container h1 { margin-bottom: 2rem; }
+.cart-item {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 1.5rem; border-bottom: 1px solid #eee;
+}
+.cart-item .thumb {
+  width: 100px; height: 100px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-light));
+  display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;
+}
+.cart-item .details { flex: 1; }
+.cart-item .details h3 { font-size: 1.1rem; color: var(--charcoal); }
+.cart-item .details .price { color: var(--gold); font-weight: bold; margin: 0.5rem 0; }
+.qty-controls { display: flex; align-items: center; gap: 0.5rem; }
+.qty-controls button {
+  width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 8px;
+  background: white; cursor: pointer; font-size: 1.1rem;
+}
+.qty-controls span { min-width: 30px; text-align: center; }
+.remove-btn { background: none; border: none; color: #e44; cursor: pointer; font-size: 0.9rem; }
+.cart-summary {
+  margin-top: 2rem; padding: 2rem; background: var(--pink-light);
+  border-radius: 16px; text-align: right;
+}
+.cart-summary .total { font-size: 1.4rem; font-weight: bold; color: var(--charcoal); margin-bottom: 1rem; }
+.empty-cart { text-align: center; padding: 4rem; color: #999; }
+.empty-cart p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+/* CHECKOUT */
+.checkout-form { max-width: 700px; margin: 3rem auto; padding: 0 2rem; }
+.checkout-form h1 { margin-bottom: 2rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+.form-group input, .form-group select {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid #ddd; border-radius: 10px;
+  font-size: 1rem; font-family: inherit;
+}
+.form-group input:focus { outline: none; border-color: var(--pink); }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+.order-summary { background: var(--pink-light); padding: 2rem; border-radius: 16px; margin-top: 2rem; }
+
+/* FOOTER */
+footer {
+  background: var(--charcoal); color: white; padding: 3rem 2rem;
+  text-align: center;
+}
+footer .logo { font-family: 'Didot', serif; font-size: 1.5rem; color: var(--gold); }
+footer p { margin-top: 1rem; color: #aaa; font-size: 0.85rem; }
+
+/* IMAGE FALLBACK: put your .jpg/.png in images/ folder */
+.img-wrap { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--pink), var(--pink-light), white); }
+.img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.img-wrap .fallback { position: relative; z-index: 0; }
+
+/* SUCCESS PAGE */
+.success { text-align: center; padding: 6rem 2rem; }
+.success .icon { font-size: 5rem; margin-bottom: 1rem; }
+.success h1 { margin-bottom: 1rem; }
+.success p { color: #666; margin-bottom: 2rem; }
